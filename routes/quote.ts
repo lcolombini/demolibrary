@@ -1,6 +1,6 @@
 import express, { Request, Response, Router } from 'express';
-import { responseOK } from '../src/utils/constants.utils';
-import { testConnection } from '../src/controllers/test';
+import { responseOK } from '../utils/constants.utils';
+import { testConnection } from '../controllers/test';
 
 const health = (router: Router) => {
     router.get('/-/health', async (req: Request, res: Response) => {
