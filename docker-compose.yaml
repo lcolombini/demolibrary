@@ -8,20 +8,24 @@ services:
     hostname: postgres
     ports:
       - 5432:5432
+    expose:
+      - 5432:5432
     environment:
       - POSTGRES_USER=${DB_USER}
       - POSTGRES_PASSWORD=${DB_PASS}
       - POSTGRES_DB=${DB_NAME}
       - PGDATA:${PGDATA}
     volumes:
-      - ./ddls:/docker-entrypoint-initdb.d
-      - hastega-volume:/data/postgres-hastega
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - hastega-volume:/var/lib/postgresql/data
     networks:
       - backend
     restart: always
   backend:
+    container_name: backend
     build: 
       context: .
+      dockerfile: ./Dockerfile
     image: backend-library:latest
     ports:
       - "49170:8080"
@@ -38,4 +42,4 @@ networks:
     name: shared-network
 volumes:
     hastega-volume:
-      external: true
+      external: false
