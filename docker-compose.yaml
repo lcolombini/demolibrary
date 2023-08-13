@@ -25,6 +25,8 @@ services:
     image: backend-library:latest
     ports:
       - "49170:8080"
+    links:
+      - postgres
     volumes:
       - /node_modules
     depends_on:
