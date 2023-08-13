@@ -5,6 +5,8 @@ import morgan from 'morgan';
 import routes from '../routes/quote';
 var bodyParser = require("body-parser");
 const router: Express = express();
+const dotenv = require('dotenv')
+dotenv.config()
 
 /** Logging */
 router.use(morgan('dev'));
