@@ -10,10 +10,13 @@ services:
       - POSTGRES_DB=${DB_PASS}
       - PGDATA=${PGDATA}
     volumes:
-      - ~/apps/postgres:/var/lib/postgresql/data
+      - ./ddls:/docker-entrypoint-initdb.d
+      - ./data:/var/lib/postgresql/data
     networks:
       - backend
+    restart: always
   backend:
+    build: ./
     image: backend-library:latest
     ports:
       - "49170:8080"
@@ -23,10 +26,5 @@ services:
       - postgres
     networks:
       - backend
-    environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASS}
-      - POSTGRES_DB=${DB_PASS}
-      - PGDATA=${PGDATA}
 networks:
   backend:
