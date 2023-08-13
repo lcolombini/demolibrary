@@ -24,7 +24,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       readingsNumber:{
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        defaultValue: 0
       },
       dateAdded: {
         type: Sequelize.DATE
