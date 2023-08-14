@@ -5,7 +5,9 @@ FROM node:lts-alpine
 # where available (npm@5+)
 COPY package*.json ./
 COPY tsconfig.json ./
+COPY config/config.js config/
 
+RUN apk update && apk add bash
 RUN npm install
 RUN npm install ts-node
 RUN npm install tsconfig.json
