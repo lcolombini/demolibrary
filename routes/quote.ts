@@ -13,7 +13,7 @@ const book = (router: Router) => {
 
 const user = (router: Router) => {
     router.get('/users/all', findAllUsers);
-    router.get('/users/list', bookList)
+    router.get('/users/:id/books', bookList)
 };
 const router = express.Router();
 health(router);

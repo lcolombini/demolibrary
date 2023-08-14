@@ -25,10 +25,10 @@ export async function findAllUsers(req: Request, res: Response) {
     }
 }
 export async function bookList(req: Request, res: Response) {
-    const requestPayload = req.query;
+    const requestPayload = req.params;
     try {
         sequelize.sync().then(() => {
-            User.findOne({ where: { id: requestPayload.userId },include: Book}).then(user => {
+            User.findByPk(requestPayload.id, {include: Book}).then(user => {
                 if (user) {
                     return res.status(responseOK).send({ user, Book })
                 }
