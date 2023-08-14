@@ -5,19 +5,5 @@
     "database": "hastega_db",
     "host": "localhost",
     "dialect": "postgres"
-  },
-  "test": {
-    "username": "hastega",
-    "password": "hastega",
-    "database": "hastega_db",
-    "host": "localhost",
-    "dialect": "postgres"
-  },
-  "production": {
-    "username": "hastega",
-    "password": "hastega",
-    "database": "database_production",
-    "host": "localhost",
-    "dialect": "postgres"
   }
 }
