@@ -1,6 +1,6 @@
 import express, { Request, Response, Router } from 'express';
 import { responseOK } from '../utils/constants.utils';
-import { findAllUsers } from '../controllers/user.controller';
+import { bookList, findAllUsers } from '../controllers/user.controller';
 import { findAllBooks } from '../controllers/book.controller';
 const health = (router: Router) => {
     router.get('/-/health', async (req: Request, res: Response) => {
@@ -13,6 +13,7 @@ const book = (router: Router) => {
 
 const user = (router: Router) => {
     router.get('/users/all', findAllUsers);
+    router.get('/users/list', bookList)
 };
 const router = express.Router();
 health(router);
