@@ -13,10 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
         Book.hasOne(models.User)
     }
-    getAll()
-    {
-        return Book.findAll();
-    }
   }
   Book.init({
     title: DataTypes.STRING,
