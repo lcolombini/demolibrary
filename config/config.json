@@ -1,9 +1,0 @@
-{
-  "development": {
-    "username": "hastega",
-    "password": "hastega",
-    "database": "hastega_db",
-    "host": "localhost",
-    "dialect": "postgres"
-  }
-}

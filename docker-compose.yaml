@@ -24,6 +24,7 @@ services:
     build: 
       context: .
       dockerfile: ./Dockerfile
+    entrypoint: ["/bin/bash", "./entrypoint.sh"]
     image: backend-library:latest
     ports:
       - "49170:8080"
