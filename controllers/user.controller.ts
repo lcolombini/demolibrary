@@ -24,6 +24,27 @@ export async function findAllUsers(req: Request, res: Response) {
         throw e;
     }
 }
+
+export async function findByEmail(req: Request, res: Response) {
+    const requestPayload = req.body;
+    try {
+        sequelize.sync().then(() => {
+
+            User.findOne({ where: { email: requestPayload.email } }).then(user => {
+                return res.status(responseOK).send({ user })
+            }).catch((error) => {
+                console.error('Failed to retrieve data : ', error);
+            });
+
+        }).catch((error) => {
+            console.error('Unable to findOne: ', error);
+        });
+
+    }
+    catch (e: any) {
+        throw e;
+    }
+}
 export async function bookList(req: Request, res: Response) {
     const requestPayload = req.params;
     try {
