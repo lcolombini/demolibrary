@@ -9,7 +9,7 @@ export async function findAllBooks(req: Request, res: Response) {
         sequelize.sync().then(() => {
 
         Book.findAll().then(books => {
-            return res.send({responseOK, books})
+            return res.status(responseOK).send({books})
             }).catch((error) => {
                 console.error('Failed to retrieve data : ', error);
             });

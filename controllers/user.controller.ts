@@ -9,7 +9,7 @@ export async function findAllUsers(req: Request, res: Response) {
         sequelize.sync().then(() => {
 
         User.findAll().then(users => {
-            return res.send({responseOK, users})
+            return res.status(responseOK).send({ users })
             }).catch((error) => {
                 console.error('Failed to retrieve data : ', error);
             });
