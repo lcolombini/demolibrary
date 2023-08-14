@@ -1,7 +1,7 @@
 import express, { Request, Response, Router } from 'express';
 import { responseOK } from '../utils/constants.utils';
 import { bookList, findAllUsers } from '../controllers/user.controller';
-import { findAllBooks } from '../controllers/book.controller';
+import { findAllBooks, increaseReadings, removeFromCatalog } from '../controllers/book.controller';
 const health = (router: Router) => {
     router.get('/-/health', async (req: Request, res: Response) => {
         return res.status(responseOK).send('OK');
@@ -9,6 +9,8 @@ const health = (router: Router) => {
 };
 const book = (router: Router) => {
     router.get('/books/all', findAllBooks);
+    router.put('/books/increaseReadings', increaseReadings);
+    router.put('/books/removeFromCatalog', removeFromCatalog);
 };
 
 const user = (router: Router) => {
