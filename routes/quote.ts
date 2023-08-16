@@ -15,7 +15,7 @@ const book = (router: Router) => {
 
 const user = (router: Router) => {
     router.get('/users/all', findAllUsers);
-    router.get('/users/login', findByEmail);
+    router.post('/users/login', findByEmail);
     router.get('/users/:id/books', bookList)
 };
 const router = express.Router();
