@@ -51,7 +51,7 @@ export async function bookList(req: Request, res: Response) {
         sequelize.sync().then(() => {
             User.findByPk(requestPayload.id, {include: Book}).then(user => {
                 if (user) {
-                    return res.status(responseOK).send({ user, Book })
+                    return res.status(responseOK).send(JSON.stringify({ user, Book }))
                 }
             }).catch((error) => {
                 console.error('Failed to retrieve data : ', error);
