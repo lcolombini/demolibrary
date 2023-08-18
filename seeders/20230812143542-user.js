@@ -10,6 +10,13 @@ module.exports = {
             createdAt: new Date(),
             updatedAt: new Date()
         },
+            {
+                firstName: 'Hastega',
+                lastName: 'Demo',
+                email: 'demo@hastega.com',
+                createdAt: new Date(),
+                updatedAt: new Date()
+            },
         {
             firstName: 'Homer',
             lastName: 'Simpson',
@@ -23,7 +30,15 @@ module.exports = {
             email: 'nedflanders@paradise.com',
             createdAt: new Date(),
             updatedAt: new Date()
+        },
+        {
+            firstName: 'Bart',
+            lastName: 'Simpson',
+            email: 'elbarto@fox.com',
+            createdAt: new Date(),
+            updatedAt: new Date()
         }
+            
         ], {});
     },
     down: (queryInterface, Sequelize) => {
