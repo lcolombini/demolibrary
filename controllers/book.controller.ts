@@ -33,10 +33,12 @@ export async function increaseReadings(req: Request, res: Response) {
                 console.log(num.flat(2))
                 if (num.flat(2).pop() === 1) {
                     res.send({
+                        updated:'ok',
                         message: `Book with id=${requestPayload.bookId} was updated successfully.`
                     });
                 } else {
                     res.send({
+                        updated: 'fail',
                         message: `Cannot update Book with id=${requestPayload.bookId}. Maybe Book was not found`
                     });
                 }
@@ -46,7 +48,7 @@ export async function increaseReadings(req: Request, res: Response) {
             });
 
         }).catch((error) => {
-            console.error('Unable to findAll: ', error);
+            console.error('Unable to readingsNumber: ', error);
             return res.status(responseNOTFOUND)
         });
 
@@ -65,10 +67,12 @@ export async function removeFromCatalog(req: Request, res: Response) {
                 console.log(num.flat(2))
                 if (num.flat(2).pop() === 1) {
                     res.send({
+                        updated: 'ok',
                         message: `Book with id=${requestPayload.bookId} was updated successfully.`
                     });
                 } else {
                     res.send({
+                        updated: 'fail',
                         message: `Cannot update Book with id=${requestPayload.bookId}. Maybe Book was not found`
                     });
                 }
@@ -78,7 +82,7 @@ export async function removeFromCatalog(req: Request, res: Response) {
             });
 
         }).catch((error) => {
-            console.error('Unable to findAll: ', error);
+            console.error('Unable to removeFromCatalog: ', error);
             return res.status(responseNOTFOUND)
         });
 
