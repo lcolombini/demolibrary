@@ -17,7 +17,7 @@ services:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
       - ./data:/var/lib/postgresql/data
     networks:
-      - default
+      - backend
     restart: always
   backend:
     container_name: backend
@@ -35,8 +35,9 @@ services:
     depends_on:
       - postgres
     networks:
-      - default
+      - backend
 networks:
   backend:
     name: hastega-net
     driver: bridge
+    external: true
