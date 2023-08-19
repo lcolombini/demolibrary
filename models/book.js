@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     author: DataTypes.STRING,
     isbn: DataTypes.STRING,
-    plot: DataTypes.STRING,
+    plot: DataTypes.TEXT,
     readingsNumber:DataTypes.INTEGER,
     dateAdded: DataTypes.DATE,
     cancellationDate: DataTypes.DATE

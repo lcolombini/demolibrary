@@ -21,7 +21,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       plot:{
-        type: Sequelize.STRING
+        type: Sequelize.TEXT
       },
       readingsNumber:{
         type: Sequelize.INTEGER,
