@@ -8,15 +8,15 @@ const health = (router: Router) => {
     });
 };
 const book = (router: Router) => {
-    router.get('/books/all', findAllBooks);
-    router.put('/books/increaseReadings', increaseReadings);
-    router.put('/books/removeFromCatalog', removeFromCatalog);
+    router.get('/api/v1/books/all', findAllBooks);
+    router.put('/api/v1/books/increaseReadings', increaseReadings);
+    router.put('/api/v1/books/removeFromCatalog', removeFromCatalog);
 };
 
 const user = (router: Router) => {
-    router.get('/users/all', findAllUsers);
-    router.post('/users/login', findByEmail);
-    router.get('/users/:id/books', bookList)
+    router.get('/api/v1/users/all', findAllUsers);
+    router.post('/api/v1/users/login', findByEmail);
+    router.get('/api/v1/users/:id/books', bookList)
 };
 const router = express.Router();
 health(router);
